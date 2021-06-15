@@ -14,6 +14,13 @@ class ProductModel extends BaseModel
         return $this->findById(self::TABLE, $id);
     }
 
+    public function getByCategoryId($categoryId)
+    {
+        $sql = "SELECT * FROM ".self::TABLE." WHERE category_id = ${categoryId} ";
+
+        return $this->getByQuery($sql);
+    }
+
     public function insert($data)
     {
         return $this->store(self::TABLE, $data);

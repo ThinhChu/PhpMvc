@@ -4,7 +4,7 @@ class CategoryModel extends BaseModel
 {
     const TABLE = 'categories';
 
-    public function getAll($columns, $order = [], $limit = 15)
+    public function getAll($columns = ['*'], $order = [], $limit = 15)
     {
         return $this->all(self::TABLE, $columns, $order, $limit);
     }

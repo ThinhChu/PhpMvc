@@ -10,7 +10,7 @@ class BaseModel extends Database
         $this->connect = $this->connect();
     }
 
-    public function all($table, $select = ['*'], $orders, $limit)
+    public function all($table, $select, $orders, $limit)
     {
         $columns = implode(",", $select);
         $order = implode(" ", $orders);
@@ -34,6 +34,18 @@ class BaseModel extends Database
         $sql = "SELECT * FROM ${table} WHERE id = ${id} LIMIT 1";
         $query = $this->_query($sql);
         return mysqli_fetch_assoc($query);
+    }
+
+    public function getByQuery($sql)
+    {
+        $query = $this->_query($sql);
+        $data = [];
+
+        while ($row = mysqli_fetch_assoc($query))
+        {
+            array_push($data, $row);
+        }
+        return $data;
     }
 
     // Them du lieu vao bang

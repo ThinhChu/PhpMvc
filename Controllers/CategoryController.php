@@ -3,24 +3,31 @@
 class CategoryController extends BaseController
 {
     public $categoryModel;
+    public $productModel;
 
     public function __construct()
     {
         $this->loadModel('CategoryModel');
         $this->categoryModel = new CategoryModel;
 
+        $this->loadModel('ProductModel');
+        $this->productModel = new ProductModel;
+
     }
     public function index()
     {
         // $order = ['columns' => 'id', 'order' => 'desc'];
-        $columns = ['id', 'name'];
+        // $columns = ['id', 'name'];
         // Get dữ liệu theo : tên cột cần lây, orderby, limit
-        $categories = $this->categoryModel->getAll(
-            $columns
+        $menu = $this->categoryModel->getAll(
+            // $columns
         );
-
+        $title = 'Danh mục sản phẩm';
         return $this->view('categories.index',
-        ['categories' => $categories],
+        [
+            'menu' => $menu,
+            'title' => $title,
+        ]
     );
     }
 
@@ -28,8 +35,13 @@ class CategoryController extends BaseController
     {
         $id = $_GET['id'];
         $categoryId = $this->categoryModel->getByid($id);
+        $product = $this->productModel->getByCategoryId($id);
+        
         return $this->view('categories.show',
-        ['categoryId' => $categoryId],
+        [
+            'categoryId' => $categoryId,
+            'product'   => $product,
+        ],
     );
     }
 
