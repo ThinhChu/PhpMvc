@@ -244,7 +244,7 @@
     </section>
     <!-- Hero Section End -->
 
-    <?php if ($_REQUEST["controller"]) { ?>
+    <?php if (isset($_REQUEST["controller"])) { ?>
         <!-- Breadcrumb Section Begin -->
         <section class="breadcrumb-section set-bg" data-setbg="./public/img/breadcrumb.jpg">
             <div class="container">

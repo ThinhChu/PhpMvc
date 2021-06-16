@@ -5,10 +5,10 @@
         'title' => $title['name'],
     ]
     );
-    $this->view('categories._detail',
+    $this->view('products._detail',
     [
         'menu' => $menu,
-        'product' => $product,
+        'product' => $title,
     ]
     );
     $this->view('partitions.footer');

@@ -22,11 +22,9 @@ class CategoryController extends BaseController
         $menu = $this->categoryModel->getAll(
             // $columns
         );
-        $title = 'Danh mục sản phẩm';
         return $this->view('categories.index',
         [
             'menu' => $menu,
-            'title' => $title,
         ]
     );
     }
@@ -34,13 +32,14 @@ class CategoryController extends BaseController
     public function show()
     {
         $id = $_GET['id'];
+        $menu = $this->categoryModel->getAll();
         $categoryId = $this->categoryModel->getByid($id);
         $product = $this->productModel->getByCategoryId($id);
-        
         return $this->view('categories.show',
         [
-            'categoryId' => $categoryId,
             'product'   => $product,
+            'title' => $categoryId,
+            'menu' => $menu,
         ],
     );
     }

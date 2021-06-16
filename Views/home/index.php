@@ -1,8 +1,7 @@
 <?php
     $this->view('partitions.header', 
     [
-        'menu' => $menu ?? [],
-        'title' => $title,
+        'menu' => $menu ?? []
     ]);
     $this->view('partitions.category_choose');
     $this->view('partitions.product_choose');

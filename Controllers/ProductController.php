@@ -3,11 +3,15 @@
 class ProductController extends BaseController
 {
     private $productModel;
+    public $categoryModel;
 
     public function __construct()
     {
         $this->loadModel('ProductModel');
         $this->productModel = new ProductModel;
+
+        $this->loadModel('CategoryModel');
+        $this->categoryModel = new CategoryModel;
     }
 
     public function index()
@@ -27,9 +31,13 @@ class ProductController extends BaseController
     public function show()
     {
         $id = $_GET['id'];
+        $menu = $this->categoryModel->getAll();
         $productId = $this->productModel->getById($id);
-        return $this->view('products.detail',
-            ['productId' => $productId]
+        return $this->view('products.show',
+        [
+            'title' => $productId,
+            'menu' => $menu,
+        ]
         );
     }
 
