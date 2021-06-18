@@ -28,6 +28,9 @@ class ProductModel extends BaseModel
         if($input)
         {
             $sql.= ' WHERE name LIKE "%'.$input['nameProduct'].'%"';
+            if (isset($input['minPrice']) && isset($input['maxPrice'])) {
+                $sql.= " AND price >= ${input['minPrice']} AND price <= ${input['maxPrice']}";
+            }
             if ($input['category']) {
                 $sql.= " AND category_id = ${input['category']}";
             }

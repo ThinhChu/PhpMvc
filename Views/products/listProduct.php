@@ -21,7 +21,11 @@
 <section class="product spad">
     <div class="container">
         <div class="row">
-            <?php $this->view('partitions.sidebar', ['menu' => $menu]); ?>
+            <?php $this->view('partitions.sidebar', 
+            [
+                'menu' => $menu,
+                'products' => $products,
+            ]); ?>
             <div class="col-lg-9 col-md-7">
                 <div class="filter__item">
                     <div class="row">

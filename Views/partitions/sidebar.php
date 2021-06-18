@@ -26,6 +26,19 @@
                     </div>
                 </div>
                 <div class="w-100 mt-3 btn-cs">
+                    <?php  if (isset($_GET["action"])) :?>
+                        <input type='hidden' name='action' value='<?php echo $_GET['action']?>'>
+                    <?php endif ?>
+                    <?php  if (isset($_GET["id"])) :?>
+                        <input type="hidden" name="id" value="<?php echo $_GET["id"] ?? ""?>">
+                    <?php endif ?>
+                    <?php  if (isset($_GET["nameProduct"])) :?>
+                        <input type='hidden' name='nameProduct' value='<?php echo $_GET['nameProduct'] ?? ""?>'>
+                    <?php endif ?>
+                    <?php  if (isset($_GET["category"])) :?>
+                        <input type="hidden" name="category" value="<?php echo $_GET['category'] ?? "" ?>">
+                    <?php endif ?>
+                    <input type="hidden" name="controller" value="<?php echo $_GET["controller"] ?? "product"?>">
                     <button class="btn-submit" type="submit">Chọn mức giá</button>
                 </div>
             </div>
