@@ -14,9 +14,43 @@ class ProductModel extends BaseModel
         return $this->findById(self::TABLE, $id);
     }
 
-    public function getByCategoryId($categoryId)
+    public function getAllCategoryName()
+    {
+        $sql = "SELECT  products.*, categories.name as category_name FROM ".self::TABLE."
+        JOIN categories ON categories.id = products.category_id ";
+
+        return $this->getByQuery($sql);
+    }
+
+    public function Search($input)
+    {
+        $sql = "SELECT  * FROM ".self::TABLE." ";
+        if($input)
+        {
+            $sql.= ' WHERE name LIKE "%'.$input['nameProduct'].'%"';
+            if ($input['category']) {
+                $sql.= " AND category_id = ${input['category']}";
+            }
+        }
+        return $this->getByQuery($sql);
+    }
+
+    public function getDetail($id)
+    {
+        $sql = "SELECT  products.*, categories.name as category_name FROM ".self::TABLE."
+        JOIN categories ON categories.id = products.category_id
+        WHERE products.id = ${id} ";
+
+        return $this->getFirstById($sql);
+    }
+
+    public function getByCategoryId($categoryId, $productId = NULL)
     {
         $sql = "SELECT * FROM ".self::TABLE." WHERE category_id = ${categoryId} ";
+
+        if ($productId) {
+            $sql = "SELECT * FROM ".self::TABLE." WHERE category_id = ${categoryId} and id != ${productId} ";
+        }
 
         return $this->getByQuery($sql);
     }

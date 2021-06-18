@@ -634,10 +634,36 @@ ol {
 }
 
 .hero__search {
-	overflow: hidden;
-	margin-bottom: 30px;
+	overflow: inherit;
 }
-
+.hero__item.set-bg.mt-cs {
+    margin-top: 70px;
+}
+@media screen and (max-width: 769px){
+	.hero__search {
+		overflow: hidden;
+		margin-bottom: 30px;
+	}
+	.hero__item.set-bg.mt-cs {
+		margin-top: 2rem;
+	}
+	.hero__search__form form .hero__search__categories span {
+		position: absolute;
+		right: 0px;
+		top: 0px;
+	}
+	.nice-select .list {
+		left: 0px;
+	}
+}
+.btn-cs button.btn-submit {
+    background-color: #7fad39;
+	padding: 13px 30px 12px;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 800;
+	border: 0;
+}
 .hero__search__form {
 	width: 610px;
 	height: 50px;
@@ -653,10 +679,13 @@ ol {
 	color: #1c1c1c;
 	font-weight: 700;
 	padding-left: 18px;
-	padding-top: 11px;
+	padding-top: 3px;
 	position: relative;
 }
-
+.nice-select.custom-select {
+    width: 145px;
+    border: 0;
+}
 .hero__search__form form .hero__search__categories:after {
 	position: absolute;
 	right: 0;
@@ -670,8 +699,16 @@ ol {
 
 .hero__search__form form .hero__search__categories span {
 	position: absolute;
-	right: 14px;
-	top: 14px;
+    left: -6px;
+    top: 0;
+}
+.nice-select .list {
+    left: -18px;
+}
+.custom-select:focus {
+    border-color: #fff !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem white !important;
 }
 
 .hero__search__form form input {
@@ -1138,9 +1175,10 @@ ol {
 	font-size: 16px;
 	color: #dd2222;
 	font-weight: 700;
-	max-width: 20%;
+	max-width: 35%;
 	border: none;
 	display: inline-block;
+	text-align: center;
 }
 
 .price-range-wrap .price-range {

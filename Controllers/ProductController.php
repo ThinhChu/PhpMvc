@@ -16,27 +16,34 @@ class ProductController extends BaseController
 
     public function index()
     {
-        $selectColumns = ['id', 'name', 'price'];
-        $orderBy =['columns' => 'id','order'   => 'desc'];
+        $params = $_GET;
         // Get dữ liệu theo : tên cột cần lây, orderby, limit
-        $products = $this->productModel->getAll(
-            $selectColumns, 
-        $orderBy
-    );
-        return $this->view('products.index',[
+        $menu = $this->categoryModel->getAll();
+        $products = !$params
+        ? 
+        $products = $this->productModel->getAll()
+        : $this->productModel->Search($params) ;
+
+        return $this->view('products.index',
+        [
             'products' => $products,
+            'menu' => $menu,
         ]);
     }
 
     public function show()
     {
         $id = $_GET['id'];
+
         $menu = $this->categoryModel->getAll();
-        $productId = $this->productModel->getById($id);
+        $productId = $this->productModel->getDetail($id);
+        $products = $this->productModel->getByCategoryId($productId['category_id'], $id);
+        
         return $this->view('products.show',
         [
-            'title' => $productId,
+            'product' => $productId,
             'menu' => $menu,
+            'products' => $products,
         ]
         );
     }

@@ -29,6 +29,12 @@ class BaseModel extends Database
         return $data;
     }
 
+    public function getFirstById($sql)
+    {
+        $query = $this->_query($sql);
+        return mysqli_fetch_assoc($query);
+    }
+
     public function findById($table, $id)
     {
         $sql = "SELECT * FROM ${table} WHERE id = ${id} LIMIT 1";

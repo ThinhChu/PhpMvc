@@ -5,10 +5,10 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <div class="breadcrumb__text">
-                            <h2><?= $category['name'] ?? "Ogani" ?></h2>
+                            <h2><?= !$_GET["nameProduct"] == "" ? $_GET["nameProduct"] : "Sản phẩm" ?></h2>
                             <div class="breadcrumb__option">
                                 <a href="./">Home</a>
-                                <a href="index.php?controller=category&action=show&id=<?=$category['id']?>"><?= $category['name'] ?? "" ?></a>
+                                <span><?= !$_GET["nameProduct"] == "" ? $_GET["nameProduct"] : "Sản phẩm" ?></span>
                             </div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4">
                             <div class="filter__found">
-                                <h6><span>16</span> Products found</h6>
+                                <h6><span><?=count($products);?></span> Products found</h6>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-3">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <?php foreach ($products as $key => $item) { ?>
+                    <?php if(count($products)>0) { foreach ($products as $key => $item) { ?>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="./public/img/product/<?php if ($item['img'] != "") { $item['img'];}else{echo 'product-1.jpg';} ?>">
@@ -60,11 +60,13 @@
                                 </div>
                                 <div class="product__item__text">
                                     <h6><a href="index.php?controller=product&action=show&id=<?=$item['id']?>"><?=$item['name']?></a></h6>
-                                    <h5><?=$item['price']?></h5>
+                                    <h5><?= number_format($item['price'])." vnđ" ?? "Liên hệ"?></h5>
                                 </div>
                             </div>
                         </div>
-                    <?php  } ?>
+                    <?php  } }else{ ?>
+                        <p class="center">Không có sản phẩm</p>
+                    <?php }?>
                 </div>
                 <div class="product__pagination">
                     <a href="#">1</a>

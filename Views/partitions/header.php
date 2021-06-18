@@ -196,21 +196,26 @@
                                 <li><a href="#">Butter & Eggs</a></li>
                                 <li><a href="#">Fastfood</a></li>
                                 <li><a href="#">Fresh Onion</a></li>
-                                <!-- <li><a href="#">Papayaya & Crisps</a></li>
-                                <li><a href="#">Oatmeal</a></li>
-                                <li><a href="#">Fresh Bananas</a></li> -->
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
+                            <form action="" method="get">
                                 <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
+                                    <!-- All Categories
+                                    <span class="arrow_carrot-down"></span> -->
+                                    <select name="category" class="custom-select">
+                                        <option value="" <?php if (isset($_REQUEST['category'])) {echo $_REQUEST['category'] == "" ? "selected" : "";} ?>>Danh mục sản phẩm</option>
+                                        <?php foreach ($menu as $key => $ct) :?>
+                                            <option value="<?= $ct['id']?>" <?php if (isset($_REQUEST['category'])) {echo $_REQUEST['category'] == $ct['id'] ? "selected" : "";} ?>><?= $ct['name'] ?></option>
+                                        <?php endforeach?>
+                                    </select>
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
+                                <input type="text" name="nameProduct" value="<?= $_GET['nameProduct'] ?? "" ?>" placeholder="What do yo u need?">
+                                <input type="hidden" name="controller" value="product">
+                                <!-- <input type="hidden" name="" value=""> -->
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
@@ -228,7 +233,7 @@
                     <?php
                         if (empty($_REQUEST["controller"])) {
                         ?>
-                            <div class="hero__item set-bg mt-2" data-setbg="./public/img/hero/banner.jpg">
+                            <div class="hero__item set-bg mt-cs" data-setbg="./public/img/hero/banner.jpg">
                                 <div class="hero__text">
                                     <span>FRUIT FRESH</span>
                                     <h2>Vegetable <br />100% Organic</h2>
@@ -244,22 +249,4 @@
     </section>
     <!-- Hero Section End -->
 
-    <?php if (isset($_REQUEST["controller"])) { ?>
-        <!-- Breadcrumb Section Begin -->
-        <section class="breadcrumb-section set-bg" data-setbg="./public/img/breadcrumb.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <div class="breadcrumb__text">
-                            <h2><?= $title ?? "Ogani" ?></h2>
-                            <div class="breadcrumb__option">
-                                <a href="./index.html">Home</a>
-                                <span><?= $title ?? "Ogani" ?></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Breadcrumb Section End -->
-    <?php } ?>
+    

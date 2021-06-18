@@ -1,5 +1,16 @@
-<h1>Danh sách sản phẩm</h1>
 <?php
-echo '<pre>';
-print_r($products);
-echo '</pre>';
+    $this->view('partitions.header',
+    [
+        'menu' => $menu,
+    ]
+    );
+
+    $this->view('products.listProduct',
+    [
+        'menu' => $menu,
+        'products' => $products,
+    ]
+    );
+
+    $this->view('partitions.footer');
+?>
