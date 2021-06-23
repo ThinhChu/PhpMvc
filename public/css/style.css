@@ -1181,6 +1181,10 @@ ol {
 	text-align: center;
 }
 
+span.current {
+    font-weight: bold;
+}
+
 .price-range-wrap .price-range {
 	border-radius: 0;
 }
@@ -1957,6 +1961,10 @@ ol {
 .shoping__cart__table table tbody tr td.shoping__cart__item img {
 	display: inline-block;
 	margin-right: 25px;
+}
+
+button.primary-btn {
+    border: 0;
 }
 
 .shoping__cart__table table tbody tr td.shoping__cart__item h5 {

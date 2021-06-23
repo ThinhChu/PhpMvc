@@ -66,7 +66,9 @@ class BaseModel extends Database
         },$datasValue));    
 
         $sql = "INSERT INTO ${table} (${datasKey}) VALUES (${newValues})";
-        return $this->_query($sql);
+        $this->_query($sql);
+
+        return $this->getFirstById("SELECT * FROM ${table} ORDER BY ID DESC LIMIT 1");
     }
 
     // Update du lieu vao bang

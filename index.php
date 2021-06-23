@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    
     require "./Controllers/BaseController.php";
     require "./Core/Database.php";
     require "./Models/BaseModel.php";

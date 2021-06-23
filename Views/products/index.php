@@ -2,6 +2,7 @@
     $this->view('partitions.header',
     [
         'menu' => $menu,
+        'countCart' => $countCart,
     ]
     );
 
@@ -9,6 +10,8 @@
     [
         'menu' => $menu,
         'products' => $products,
+        'price' => $price,
+        'nameCategory' => $nameCategory,
     ]
     );
 

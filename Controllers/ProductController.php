@@ -17,25 +17,32 @@ class ProductController extends BaseController
     public function index()
     {
         $params = $_GET;
+        $categoryId = $_GET["id_category"] ?? false;
         // Get dữ liệu theo : tên cột cần lây, orderby, limit
         $menu = $this->categoryModel->getAll();
-        $products = !$params
-        ? 
-        $products = $this->productModel->getAll()
+        $price = $this->productModel->priceProduct();
+        $countCart = count($_SESSION["cart"] ?? []);
+        $nameCategory = !$categoryId ? "Sản phẩm" : $this->categoryModel->getByid($categoryId);
+
+        $products = !$params ? $products = $this->productModel->getAll() 
         : $this->productModel->Search($params) ;
 
         return $this->view('products.index',
         [
             'products' => $products,
             'menu' => $menu,
+            'price' => $price,
+            'nameCategory' => $nameCategory,
+            'countCart' => $countCart,
         ]);
     }
 
     public function show()
     {
-        $id = $_GET['id'];
+        $id = $_GET['id'] ?? "";
 
         $menu = $this->categoryModel->getAll();
+        $countCart = count($_SESSION["cart"] ?? []);
         $productId = $this->productModel->getDetail($id);
         $products = $this->productModel->getByCategoryId($productId['category_id'], $id);
         
@@ -44,18 +51,8 @@ class ProductController extends BaseController
             'product' => $productId,
             'menu' => $menu,
             'products' => $products,
+            'countCart' => $countCart,
         ]
         );
-    }
-
-    public function store()
-    {
-        $data = [
-            'name' => 'Iphone 15',
-            'price' => 15000000,
-            'category_id' => 1,
-        ];
-
-        $this->productModel->insert($data);
     }
 }

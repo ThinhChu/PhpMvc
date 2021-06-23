@@ -5,10 +5,10 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <div class="breadcrumb__text">
-                            <h2><?= !$_GET["nameProduct"] == "" ? $_GET["nameProduct"] : "Sản phẩm" ?></h2>
+                            <h2><?= $nameCategory['name'] ?? $nameCategory ?></h2>
                             <div class="breadcrumb__option">
                                 <a href="./">Home</a>
-                                <span><?= !$_GET["nameProduct"] == "" ? $_GET["nameProduct"] : "Sản phẩm" ?></span>
+                                <span><?= $nameCategory['name'] ?? $nameCategory ?></span>
                             </div>
                         </div>
                     </div>
@@ -25,7 +25,9 @@
             [
                 'menu' => $menu,
                 'products' => $products,
-            ]); ?>
+                'price' => $price,
+            ]); 
+            ?>
             <div class="col-lg-9 col-md-7">
                 <div class="filter__item">
                     <div class="row">
@@ -59,7 +61,7 @@
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="index.php?controller=product&action=show&id=<?=$item['id']?>"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="index.php?controller=cart&action=store&id_product=<?=$item['id']?>"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">

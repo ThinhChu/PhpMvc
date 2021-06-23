@@ -2899,6 +2899,10 @@ ol {
 	font-size: 18px;
 	letter-spacing: 2px;
 }
+.items-order{
+	display: flex;
+    justify-content: space-between;
+}
 
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
 

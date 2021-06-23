@@ -25,16 +25,29 @@ class ProductModel extends BaseModel
     public function Search($input)
     {
         $sql = "SELECT  * FROM ".self::TABLE." ";
-        if($input)
+        if(isset($input))
         {
-            $sql.= ' WHERE name LIKE "%'.$input['nameProduct'].'%"';
+            if (isset($input["nameProduct"])) {
+                $sql.= ' WHERE name LIKE "%'.$input['nameProduct'].'%"';
+            }else{
+                $sql.= ' WHERE name LIKE "%%"';
+            }
             if (isset($input['minPrice']) && isset($input['maxPrice'])) {
                 $sql.= " AND price >= ${input['minPrice']} AND price <= ${input['maxPrice']}";
             }
-            if ($input['category']) {
-                $sql.= " AND category_id = ${input['category']}";
+            if (!empty($input["id_category"])) {
+                $sql.= " AND category_id = ${input['id_category']}";
+            }else{
+
             }
         }
+        return $this->getByQuery($sql);
+    }
+
+    public function priceProduct()
+    {
+        $sql = 'SELECT MAX(price) as "priceMax" , MIN(price) as "priceMin" FROM products';
+
         return $this->getByQuery($sql);
     }
 

@@ -55,15 +55,17 @@
                     <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
                         vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
                         quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
-                    <div class="product__details__quantity">
-                        <div class="quantity">
-                            <div class="pro-qty">
-                                <input type="text" value="1">
+                    <form action="index.php?controller=cart&action=store&id_product=<?= $product['id'] ?>" method="post">
+                        <div class="product__details__quantity">
+                            <div class="quantity">
+                                <div class="pro-qty">
+                                    <input type="text" name="qty" value="1">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <a href="#" class="primary-btn">ADD TO CARD</a>
-                    <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <button class="primary-btn">Thêm vào giỏ</button>
+                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                    </form>
                     <ul>
                         <li><b>Availability</b> <span>In Stock</span></li>
                         <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
@@ -171,7 +173,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title related__product__title">
-                        <h2>Related Product</h2>
+                        <h2>Sản Phẩm Liên Quan</h2>
                     </div>
                 </div>
             </div>

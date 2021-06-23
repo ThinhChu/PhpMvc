@@ -1,7 +1,8 @@
 <?php
     $this->view('partitions.header', 
     [
-        'menu' => $menu ?? []
+        'menu' => $menu ?? [],
+        'countCart' => $countCart,
     ]);
     $this->view('partitions.category_choose', 
     [

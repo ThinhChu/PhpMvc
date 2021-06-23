@@ -31,16 +31,25 @@ class CategoryController extends BaseController
 
     public function show()
     {
-        $id = $_GET['id'];
+        $id = $_GET['id_category'];
+        $params = $_GET;
 
         $menu = $this->categoryModel->getAll();
         $categoryId = $this->categoryModel->getByid($id);
-        $products = $this->productModel->getByCategoryId($id);
+        $products = 
+        !$params ?
+        $this->productModel->getByCategoryId($id)
+        : $this->productModel->Search($params);
+        $countCart = count($_SESSION["cart"] ?? []);
+        $price = $this->productModel->priceProduct();
+        
         return $this->view('categories.show',
         [
             'products'   => $products,
             'category' => $categoryId,
             'menu' => $menu,
+            'price' => $price,
+            'countCart' => $countCart,
         ],
     );
     }

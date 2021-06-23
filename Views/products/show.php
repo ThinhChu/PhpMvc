@@ -2,6 +2,7 @@
     $this->view('partitions.header',
     [
         'menu' => $menu,
+        'countCart' => $countCart,
     ]
     );
     $this->view('products._detail',

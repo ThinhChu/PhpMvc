@@ -33,17 +33,17 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="./public/img/logo.png" alt=""></a>
+            <a href="index.php"><img src="./public/img/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                <li><a href="index.php?controller=cart"><i class="fa fa-shopping-bag"></i> <span><?= $countCart ?? "0"?></span></a></li>
             </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
+            <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
         </div>
         <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
+            <!-- <div class="header__top__right__language">
                 <img src="./public/img/language.png" alt="">
                 <div>English</div>
                 <span class="arrow_carrot-down"></span>
@@ -51,25 +51,25 @@
                     <li><a href="#">Spanis</a></li>
                     <li><a href="#">English</a></li>
                 </ul>
-            </div>
+            </div> -->
             <div class="header__top__right__auth">
                 <a href="#"><i class="fa fa-user"></i> Login</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
-                <li><a href="#">Pages</a>
+                <li class="active"><a href="index.php">Trang chủ</a></li>
+                <li><a href="index.php?controller=product">Cửa hàng</a></li>
+                <!-- <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
                         <li><a href="./shop-details.html">Shop Details</a></li>
                         <li><a href="./shoping-cart.html">Shoping Cart</a></li>
                         <li><a href="./checkout.html">Check Out</a></li>
                         <li><a href="./blog-details.html">Blog Details</a></li>
                     </ul>
-                </li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.html">Contact</a></li>
+                </li> -->
+                <li><a href="index.php?controller=blog">Tin tức</a></li>
+                <li><a href="index.php?controller=contact">Liên hệ</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -109,7 +109,7 @@
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
-                            <div class="header__top__right__language">
+                            <!-- <div class="header__top__right__language">
                                 <img src="./public/img/language.png" alt="">
                                 <div>English</div>
                                 <span class="arrow_carrot-down"></span>
@@ -117,9 +117,9 @@
                                     <li><a href="#">Spanis</a></li>
                                     <li><a href="#">English</a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                                <a href="index.php?controller=login"><i class="fa fa-user"></i> Login</a>
                             </div>
                         </div>
                     </div>
@@ -130,24 +130,24 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="./public/img/logo.png" alt=""></a>
+                        <a href="index.php"><img src="./public/img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./shop-grid.html">Shop</a></li>
-                            <li><a href="#">Pages</a>
+                            <li class="active"><a href="index.php">Trang chủ</a></li>
+                            <li><a href="index.php?controller=product">Cửa hàng</a></li>
+                            <!-- <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="./shop-details.html">Shop Details</a></li>
                                     <li><a href="./shoping-cart.html">Shoping Cart</a></li>
                                     <li><a href="./checkout.html">Check Out</a></li>
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
-                            </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
+                            </li> -->
+                            <li><a href="index.php?controller=blog">Tin tức</a></li>
+                            <li><a href="index.php?controller=contact">Liên hệ</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -155,9 +155,9 @@
                     <div class="header__cart">
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="index.php?controller=cart"><i class="fa fa-shopping-bag"></i> <span><?= $countCart ?? "0"?></span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                        <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
                     </div>
                 </div>
             </div>
@@ -182,11 +182,11 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>All departments</span>
+                            <span>Danh mục sản phẩm</span>
                         </div>
                         <ul>
                             <?php foreach ($menu as $key => $value) { ?>
-                                <li><a href="#"><?=$value['name']?></a></li>
+                                <li><a href="index.php?controller=category&action=show&id_category=<?=$value['id']?>"><?=$value['name']?></a></li>
                             <?php } ?>
                                 <li><a href="#">Fresh Meat</a></li>
                                 <li><a href="#">Vegetables</a></li>
@@ -206,17 +206,17 @@
                                 <div class="hero__search__categories">
                                     <!-- All Categories
                                     <span class="arrow_carrot-down"></span> -->
-                                    <select name="category" class="custom-select">
-                                        <option value="" <?php if (isset($_REQUEST['category'])) {echo $_REQUEST['category'] == "" ? "selected" : "";} ?>>Danh mục sản phẩm</option>
+                                    <select name='id_category'  class="custom-select">
+                                        <option value="" <?php if (isset($_REQUEST['id_category'])) {echo $_REQUEST['id_category'] == "" ? "selected" : "";} ?>>Danh mục sản phẩm</option>
                                         <?php foreach ($menu as $key => $ct) :?>
-                                            <option value="<?= $ct['id']?>" <?php if (isset($_REQUEST['category'])) {echo $_REQUEST['category'] == $ct['id'] ? "selected" : "";} ?>><?= $ct['name'] ?></option>
+                                            <option value="<?= $ct['id']?>" <?php if (isset($_REQUEST['id_category'])) {echo $_REQUEST['id_category'] == $ct['id'] ? "selected" : "";} ?>><?= $ct['name'] ?></option>
                                         <?php endforeach?>
                                     </select>
                                 </div>
-                                <input type="text" name="nameProduct" value="<?= $_GET['nameProduct'] ?? "" ?>" placeholder="What do yo u need?">
+                                <input type="text" name='nameProduct'  value="<?= $_GET['nameProduct'] ?? "" ?>" placeholder="What do yo u need?">
                                 <input type="hidden" name="controller" value="product">
                                 <!-- <input type="hidden" name="" value=""> -->
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <button type="submit" class="site-btn">Tìm kiếm</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -238,7 +238,7 @@
                                     <span>FRUIT FRESH</span>
                                     <h2>Vegetable <br />100% Organic</h2>
                                     <p>Free Pickup and Delivery Available</p>
-                                    <a href="#" class="primary-btn">SHOP NOW</a>
+                                    <a href="index.php?controller=product" class="primary-btn">MUA NGAY</a>
                                 </div>
                             </div>
                         <?php

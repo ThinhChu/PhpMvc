@@ -24,11 +24,12 @@ class HomeController extends BaseController
         // ? 
         $this->productModel->getAllCategoryName() ;
         // : $this->productModel->Search($params) ;
-        
+        $countCart = count($_SESSION["cart"] ?? []);
         return $this->view('home.index',
         [
             'menu' => $menu,
             'products' => $products,
+            'countCart' => $countCart,
         ],
         );
     }

@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>Featured Product</h2>
+                    <h2>Sản Phẩm Nổi Bật</h2>
                 </div>
                 <div class="featured__controls">
                     <ul>
@@ -23,12 +23,12 @@
                         <div class="featured__item__pic set-bg" data-setbg="public/img/featured/<?= $items['img'] ? $items['img'] :  'feature-1.jpg';?>">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="index.php?controller=product&action=show&id=<?=$items['id']?>"><i class="fa fa-retweet"></i></a></li>
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="#"><?= $items['name'] ?? "" ?></a></h6>
+                            <h6><a href="index.php?controller=product&action=show&id=<?=$items['id']?>"><?= $items['name'] ?? "" ?></a></h6>
                             <h5><?= number_format($items['price'])." vnđ"  ?? "Liên hệ" ?></h5>
                         </div>
                     </div>
